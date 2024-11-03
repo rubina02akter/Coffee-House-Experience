@@ -29,7 +29,13 @@ const addFav = coffee => {
   toast.success('Successfully added!')
 }
 //remove a coffee from local storage
+const remove = id => {
+   //get all pre. data
+   const fav = getAllFav()
+   const remaining = fav.filter(coffee => coffee.id != id)
+   localStorage.setItem('fav', JSON.stringify(remaining))
+   toast.success('Successfully Removed!')
+}
 
 
-
-export { addFav, getAllFav }
+export { addFav, getAllFav,remove }
